@@ -1,0 +1,5 @@
+services:
+  api_tests.client_middleware:
+    class: Drupal\api_tests\ConnectMiddleware
+    tags:
+      - { name: http_client_middleware }

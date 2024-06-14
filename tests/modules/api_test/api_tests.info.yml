@@ -1,0 +1,5 @@
+name: apitest_example
+description: Testing functionality for  API.
+type: module
+package: Testing
+core_version_requirement: ^9 || ^10

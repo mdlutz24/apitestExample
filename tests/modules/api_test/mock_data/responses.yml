@@ -1,0 +1,281 @@
+-
+  uri_path: /PublicAPIs/api/v1/memberbenefits/auth
+  response: |
+    {
+      "UserExists": true,
+      "UserAuthenticated": true,
+      "IndividualGuid": "fb918adb-b9a2-4f6a-b01f-e534e59169e3",
+      "IndividualId": 3469626,
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getAffiliate
+  params:
+    AffiliateId: 251
+  response: |
+    {
+      "AffiliateId": 251,
+      "AffiliateGuid": "90140451-7d7d-11d5-b098-00508b6d7cc3",
+      "AffiliateNumber": "07430",
+      "AffiliateName": "Lorum ipsum",
+      "AffiliateWebsite": "",
+      "AffiliatePhoneNumber": "(863)555-2222",
+      "AffiliateEmail": "abc@emailz.com",
+      "AffiliateAddressLine1": "",
+      "AffiliateAddressLine2": "",
+      "AffiliateAddressCity": "Sebring",
+      "AffiliateAddressStateCode": "FL",
+      "AffiliateAddressPostalCode": "33872",
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getAffiliates
+  response: |
+    {
+      "Affiliates": [
+        {
+          "AffiliateId": 251,
+          "AffiliateGuid": "541444df-8629-11d5-b098-00508b6d7cc3",
+          "AffiliateNumber": "02317",
+          "AffiliateName": "ABC Federation of Teachers",
+          "AffiliateWebsite": ""
+        },
+        {
+          "AffiliateId": 3625,
+          "AffiliateGuid": "574afe21-defb-4d7f-9d4a-95223b04d501",
+          "AffiliateNumber": "2317R",
+          "AffiliateName": "ABC Federation of Teachers-Retiree Chapter",
+          "AffiliateWebsite": ""
+        },
+        {
+          "AffiliateId": 404,
+          "AffiliateGuid": "d63e1810-3157-11d6-b0a1-00508b6d7cc3",
+          "AffiliateNumber": "06106",
+          "AffiliateName": "Lorum ipsum",
+          "AffiliateWebsite": "www.testtafu.org"
+        },
+        {
+          "AffiliateId": 174,
+          "AffiliateGuid": "d63e1064-3157-11d6-b0a1-00508b6d7cc3",
+          "AffiliateNumber": "04952",
+          "AffiliateName": "Lorum ipsum",
+          "AffiliateWebsite": "N/A"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getIndividual
+  params:
+    IndividualId: 3469626
+  response_status: 200
+  response: |
+    {
+      "IndividualId": 3469626,
+      "IndividualGuid": "fb918adb-b9a2-4f6a-b01f-e534e59169e3",
+      "FirstName": "James",
+      "MiddleName": "API",
+      "LastName": "TestUser",
+      "UserType": "Member",
+      "UnionRelationships": [
+        {
+          "AffiliateId": 3045,
+          "AffiliateGuid": "90140451-7d7d-11d5-b098-00508b6d7cc3",
+          "AffiliateNumber": "07430",
+          "AffiliateName": "Lorum ipsum",
+          "MemberId": "",
+          "UnionRelationshipTypeName": "Member"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getIndividual
+  params:
+    FilterBy: IndividualId
+    FilterValue: 3469626
+  response_status: 404
+  response: |
+    {
+      "Message": "No HTTP resource was found that matches the request URI 'https://endpoint.com/PublicAPIs/api/v1/api/getIndividual?FilterValue=3308282&FilterBy=IndividualId'."
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getIndividual
+  params:
+    IndividualId: 3469627
+  response_status: 500
+  response: |
+    {
+      "ErrorCode": -2146233088,
+      "ErrorMessage": "Input parameter(s) required"
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getIndividual
+  params:
+    FilterBy: IndividualId
+    FilterValue: 3469627
+  response_status: 200
+  response: |
+    {
+      "IndividualId": 3469627,
+      "IndividualGuid": "fb918adb-b9a2-4f6a-b01f-e534e59169e3",
+      "FirstName": "James",
+      "MiddleName": "API",
+      "LastName": "TestUser",
+      "UserType": "Member",
+      "UnionRelationships": [
+        {
+          "AffiliateId": 3045,
+          "AffiliateGuid": "90140451-7d7d-11d5-b098-00508b6d7cc3",
+          "AffiliateNumber": "07430",
+          "AffiliateName": "Lorum ipsum",
+          "MemberId": "",
+          "UnionRelationshipTypeName": "Member"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getDivisions
+  params:
+    AffiliateId: 3045
+  response: |
+    {
+      "Divisions": [
+        {
+          "DivisionId": 4,
+          "DivisionName": "AFT PSRP"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getOfficers
+  params:
+    AffiliateId: 3045
+    OnlyCurrentOfficers: true
+  response: |
+    {
+      "AffiliateOfficers": [
+        {
+          "IndividualId": 1576426,
+          "IndividualGuid": "4720951e-3f60-11d7-8f43-00508baef0eb",
+          "FirstName": "Sam",
+          "MiddleName": "Test",
+          "LastName": "Smith",
+          "AffiliateOfficerRoleName": "President",
+          "OfficerRoleTitleName": "President",
+          "TermStartDate": "10/1/2022 12:00:00 AM",
+          "TermEndDate": ""
+        },
+        {
+          "IndividualId": 1575831,
+          "IndividualGuid": "63429f1c-a7f4-4b7a-827a-fbc8597ad59d",
+          "FirstName": "John",
+          "MiddleName": "Test",
+          "LastName": "Clark",
+          "AffiliateOfficerRoleName": "Secretary",
+          "OfficerRoleTitleName": "Secretary",
+          "TermStartDate": "5/17/2020 12:00:00 AM",
+          "TermEndDate": ""
+        },
+        {
+          "IndividualId": 1576910,
+          "IndividualGuid": "48247531-3f60-11d7-8f43-00508baef0eb",
+          "FirstName": "Anna",
+          "MiddleName": "Test",
+          "LastName": "Henry",
+          "AffiliateOfficerRoleName": "Treasurer",
+          "OfficerRoleTitleName": "Treasurer",
+          "TermStartDate": "5/17/2016 12:00:00 AM",
+          "TermEndDate": ""
+        },
+        {
+          "IndividualId": 1576915,
+          "IndividualGuid": "4ccecab2-3f60-11d7-8f43-00508baef0eb",
+          "FirstName": "Racheal",
+          "MiddleName": "Test",
+          "LastName": "Murphy",
+          "AffiliateOfficerRoleName": "Vice-President",
+          "OfficerRoleTitleName": "Vice President",
+          "TermStartDate": "5/17/2016 12:00:00 AM",
+          "TermEndDate": ""
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getChaptersForFederatedAffiliate
+  params:
+    AffiliateId: 3045
+  response: |
+    {
+      "Chapters": [
+        {
+          "ChapterId": 5024,
+          "ChapterGuid": "61fbb447-5ddc-4c8b-b88d-a75dc05dcb4f",
+          "ChapterNumber": "06741-0001",
+          "ChapterName": "Lorum ipsum"
+        },
+        {
+          "ChapterId": 5025,
+          "ChapterGuid": "3dac4ff9-947e-44c9-a892-8cd332b593dd",
+          "ChapterNumber": "06741-0002",
+          "ChapterName": "Lorum ipsum"
+        },
+        {
+          "ChapterId": 5026,
+          "ChapterGuid": "96e4a038-d7d1-46f5-8e0c-17c4688889db",
+          "ChapterNumber": "06741-0003",
+          "ChapterName": "Lorum ipsum"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
+-
+  uri_path: /PublicAPIs/api/v1/api/getAffiliatesForParent
+  params:
+    ParentAffiliateId: 3045
+  response: |
+    {
+      "Affiliates": [
+        {
+          "AffiliateId": 251,
+          "AffiliateGuid": "541444df-8629-11d5-b098-00508b6d7cc3",
+          "AffiliateNumber": "02317",
+          "AffiliateName": "ABC Federation of Teachers",
+          "AffiliateWebsite": ""
+        },
+        {
+          "AffiliateId": 3625,
+          "AffiliateGuid": "574afe21-defb-4d7f-9d4a-95223b04d501",
+          "AffiliateNumber": "2317R",
+          "AffiliateName": "ABC Federation of Teachers-Retiree Chapter",
+          "AffiliateWebsite": ""
+        },
+        {
+          "AffiliateId": 404,
+          "AffiliateGuid": "d63e1810-3157-11d6-b0a1-00508b6d7cc3",
+          "AffiliateNumber": "06106",
+          "AffiliateName": "Lorum ipsum",
+          "AffiliateWebsite": "www.testtafu.org"
+        },
+        {
+          "AffiliateId": 174,
+          "AffiliateGuid": "d63e1064-3157-11d6-b0a1-00508b6d7cc3",
+          "AffiliateNumber": "04952",
+          "AffiliateName": "Lorum ipsum",
+          "AffiliateWebsite": "N/A"
+        }
+      ],
+      "ErrorCode": 0,
+      "ErrorMessage": ""
+    }
